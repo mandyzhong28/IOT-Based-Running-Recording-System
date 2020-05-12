@@ -25,26 +25,26 @@ This is a repository for an IOT based Running Recording System
 订阅数据会返回Mid, Result两个值，可以透过这两个值检查数据有没有错误和有没 有上传成功，具体语句可以看PahoMQTT库。
 
 # M5StickV
-設置M5StickV識別二維碼的步驟：
-1.使用micropython自帶的sensor和image庫，分別設置攝影鏡頭和圖像的參數。而LCD庫為控制屏幕顯示的參數。我們我鏡頭参數設定如下
- 图像色彩格式:選擇是RGB565色彩图。
- 设置图像像素大小，sensor.QQVGA: 160x120。
-2.把img設為獲取攝影機的圖像。
- 使用img庫的find_qrcode是檢測圖上是否有qrcode，如果有則會返回一系列的qrcode的參數，如解析的數據,规格等。
-3.因為我們主要用的是解碼的代碼，所以單獨取解碼結果來作下一步使用。
+设置M5StickV识别二维码的步骤：
+1.使用micropython自带的sensor和image库，分别设置摄影镜头和图像的参数。而LCD库为控制屏幕显示的参数。我们我镜头参数设定如下
+ 图像色彩格式:选择是RGB565色彩图。
+ 设置图像像素大小，sensor.QQVGA: 160x120。
+2.把img设为获取摄影机的图像。
+ 使用img库的find_qrcode是检测图上是否有qrcode，如果有则会返回一系列的qrcode的参数，如解析的数据,规格等。
+3.因为我们主要用的是解码的代码，所以单独取解码结果来作下一步使用。
 
 # RFID
-RFID卡的結構有UID和BLOCKS。UID是每張卡的唯一識別碼，只可讀不可寫。BLOCKS是可讀可寫的，因此我們把學生的資料放在BLOCKS裡。值得注意的時要加入延時，否則如果進行可累加的操作，會因為射頻處理識別的頻率高而多次識別。
+RFID卡的结构有UID和BLOCKS。 UID是每张卡的唯一识别码，只可读不可写。 BLOCKS是可读可写的，因此我们把学生的资料放在BLOCKS里。值得注意的时要加入延时，否则如果进行可累加的操作，会因为射频处理识别的频率高而多次识别。
 
 # UART
-通用异步收发传输器（Universal Asynchronous Receiver/Transmitter，通常称作UART） 是一种串行异步收发协议，应用十分广泛。UART工作原理是将数据的二进制位一位一位的进行传输。在UART通讯协议中信号线上的状态位高电平代表’1’低电平代表’0’。当然两个设备使用UART串口通讯时，必须先约定好传输速率和一些数据位。
-在進行傳輸前必須要對硬件進行連接，連接方式如圖所示：
+通用异步收发传输器（Universal Asynchronous Receiver/Transmitter，通常称作UART） 是一种串行异步收发协议，应用十分广泛。 UART工作原理是将数据的二进制位一位一位的进行传输。在UART通讯协议中信号线上的状态位高电平代表’1’低电平代表’0’。当然两个设备使用UART串口通讯时，必须先约定好传输速率和一些数据位。
+在进行传输前必须要对硬件进行连接，连接方式如图所示：
 ![image](https://github.com/mandyzhong28/IOT-Based-Running-Recording-System/blob/master/uart%E5%8E%9F%E7%90%86%E5%9C%96.png)
  TX：发送数据端，要接对面设备的RX
  RX：接收数据端，要接对面设备的TX
  GND：保证两设备共地，有统一的参考平面
 
-我們先分析我們使用到的器件的接口，可以從硬件設計圖中找到我們使用到的器件，M5Go Lite的TX和RX接口為GPIO17和GPIO16，而M5StickV的TX和RX為GPIO35和GPIO34。
-使用方法為調用Micropython帶有的uart庫，設置好相應平台。
+我们先分析我们使用到的器件的接口，可以从硬件设计图中找到我们使用到的器件，M5Go Lite的TX和RX接口为GPIO17和GPIO16，而M5StickV的TX和RX为GPIO35和GPIO34。
+使用方法为调用Micropython带有的uart库，设置好相应平台。
 # 设计简图
 ![image](https://github.com/mandyzhong28/IOT-Based-Running-Recording-System/blob/master/%E8%A8%AD%E8%A8%88%E5%9C%96.png)
