@@ -47,4 +47,4 @@ RFID卡的结构有UID和BLOCKS。 UID是每张卡的唯一识别码，只可读
 我们先分析我们使用到的器件的接口，可以从硬件设计图中找到我们使用到的器件，M5Go Lite的TX和RX接口为GPIO17和GPIO16，而M5StickV的TX和RX为GPIO35和GPIO34。
 使用方法为调用Micropython带有的uart库，设置好相应平台。
 # 设计简图
-![image](https://github.com/mandyzhong28/IOT-Based-Running-Recording-System/blob/master/%E8%A8%AD%E8%A8%88%E5%9C%96.png)
+![image](https://github.com/mandyzhong28/IOT-Based-Running-Recording-System/blob/master/design%20diagram.png)
